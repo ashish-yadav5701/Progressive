@@ -17,7 +17,7 @@ public class DatabaseConnectionManager {
             }
             properties.load(input);
         } catch (IOException e) {
-            throw new RuntimeException("Error loading properties file", e);
+            throw new RuntimeException("Error loading properties file",e);
         }
     }
  
