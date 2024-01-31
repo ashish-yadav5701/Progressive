@@ -1,13 +1,18 @@
 package com.wecp.progressive.entity;
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.*;
  
- 
+ @Entity
 public class Transactions {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transactionId;
     private int accountId;
     private double amount;
-    private String transaction_type;
-    private Date transaction_date;
+    private String transactionType;
+    private Date transactionDate;
  
    
     public Transactions() {
@@ -18,8 +23,8 @@ public class Transactions {
         this.transactionId = transactionId;
         this.accountId = accountId;
         this.amount = amount;
-        this.transaction_date = transaction_date;
-        this.transaction_type = transaction_type;
+        this.transactionDate = transaction_date;
+        this.transactionType = transaction_type;
     }
    
     public int getTransactionId() {
@@ -44,17 +49,17 @@ public class Transactions {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    public Date getTransaction_date() {
-        return transaction_date;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
-    public void setTransaction_date(Date transaction_date) {
-        this.transaction_date = transaction_date;
+    public void setTransactionDate(Date transaction_date) {
+        this.transactionDate = transaction_date;
     }
-    public String getTransaction_type() {
-        return transaction_type;
+    public String getTransactionType() {
+        return transactionType;
     }
-    public void setTransaction_type(String transaction_type) {
-        this.transaction_type = transaction_type;
+    public void setTransactionType(String transaction_type) {
+        this.transactionType = transaction_type;
     }
  
  
