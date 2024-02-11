@@ -1,6 +1,5 @@
 package com.wecp.progressive.service;
 
-
 import com.wecp.progressive.entity.Customers;
 import com.wecp.progressive.exception.CustomerAlreadyExistsException;
 import com.wecp.progressive.repository.CustomerRepository;
@@ -40,12 +39,17 @@ public class CustomerServiceImplJpa implements CustomerService {
         if (customers1 != null) {
             throw new CustomerAlreadyExistsException("Customer already exists");
         }
+        if (customers.getRole().isBlank()) {
+            return -1;
+        }
         return customerRepository.save(customers).getCustomerId();
     }
 
     @Override
     public void updateCustomer(Customers customers) {
-        customerRepository.save(customers);
+        if (!customers.getRole().isBlank()) {
+            customerRepository.save(customers);
+        }
     }
 
     @Override
